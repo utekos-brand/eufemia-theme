@@ -11,6 +11,10 @@ import type { SimpleGit } from 'simple-git'
 import * as getNextReleaseVersion from '../../../postbuild/getNextReleaseVersion'
 import { log } from '../../../lib'
 
+const buildManifest = vi.hoisted(() => ({
+  version: '0.0.0-development',
+}))
+
 vi.mock('simple-git')
 const mockSimpleGit = vi.mocked(simpleGit)
 
@@ -39,6 +43,10 @@ vi.mock('fs-extra', async () => {
   const mockedFs = {
     ...actualFs,
     readFile: vi.fn(async (file) => {
+      if (String(file).endsWith('/package.json')) {
+        return JSON.stringify(buildManifest)
+      }
+
       if (String(file).endsWith('BuildInfoData.ts')) {
         return [
           "export const version = '__VERSION__'",
@@ -91,6 +99,7 @@ vi.mock('child_process', () => ({
 }))
 
 beforeEach(() => {
+  buildManifest.version = '0.0.0-development'
   vi.spyOn(log, 'succeed').mockImplementation(vi.fn())
 })
 afterEach(() => {
@@ -98,6 +107,31 @@ afterEach(() => {
 })
 
 describe('makeReleaseVersion', () => {
+  it('uses the declared fork version in runtime and CSS metadata', async () => {
+    mockBranchName('feat/kateholthe-eufemia-brand')
+    buildManifest.version = '0.1.0-kateholthe.0'
+
+    await makeReleaseVersion()
+
+    expect(fs.writeFile).toHaveBeenNthCalledWith(
+      1,
+      expect.stringContaining('BuildInfoData.ts'),
+      expect.stringContaining(
+        "export const version = '0.1.0-kateholthe.0'"
+      )
+    )
+    expect(fs.writeFile).toHaveBeenNthCalledWith(
+      2,
+      expect.stringContaining('BuildInfoData.cjs'),
+      expect.stringContaining("exports.version = '0.1.0-kateholthe.0'")
+    )
+    expect(fs.writeFile).toHaveBeenNthCalledWith(
+      3,
+      expect.stringContaining('scopes.scss'),
+      expect.stringContaining("--eufemia-version: '0.1.0-kateholthe.0'")
+    )
+  })
+
   it('should log success', async () => {
     mockBranchName('release')
     vi.spyOn(

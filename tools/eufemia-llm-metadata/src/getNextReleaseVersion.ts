@@ -20,6 +20,12 @@ export async function getCommitHash() {
 }
 
 export async function getNextReleaseVersion() {
+  const { version } = require('@dnb/eufemia/package.json')
+
+  if (version !== '0.0.0-development') {
+    return version
+  }
+
   const {
     getNextReleaseVersion: resolveVersion,
   } = require('@dnb/eufemia/scripts/postbuild/getNextReleaseVersion')
