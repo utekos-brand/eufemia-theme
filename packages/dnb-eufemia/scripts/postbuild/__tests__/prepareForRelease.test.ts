@@ -221,7 +221,7 @@ describe('package.json', () => {
     }
 
     try {
-      expect(run('--version').trim()).toBe('0.0.0-development')
+      expect(run('--version').trim()).toBe(packageJson.version)
       expect(run('skills', 'install', '--target', target)).toContain(
         'Installed 6 Eufemia skills'
       )
