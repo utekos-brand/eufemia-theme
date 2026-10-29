@@ -20,6 +20,15 @@ describe('themeCapabilities', () => {
     expect(Object.keys(themeCapabilities)).toEqual(themeNames)
   })
 
+  it('advertises the generated Kate Holthe light and dark modes', () => {
+    expect(themeCapabilities.kateholthe).toMatchObject({
+      colorSchemes: ['light', 'dark'],
+      darkModeStyle:
+        '@dnb/eufemia/style/themes/kateholthe/kateholthe-theme-dark-mode.min.css',
+      supportsDarkSurface: false,
+    })
+  })
+
   it('only declares dark mode styles that exist', () => {
     for (const capability of Object.values(themeCapabilities)) {
       const colorSchemes: ReadonlyArray<string> = capability.colorSchemes

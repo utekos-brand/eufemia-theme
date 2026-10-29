@@ -39,8 +39,9 @@ export const themeCapabilities: Record<ThemeName, ThemeCapability> = {
     supportsDarkSurface: true,
   },
   kateholthe: {
-    colorSchemes: ['light'],
-    darkModeStyle: null,
+    colorSchemes: ['light', 'dark'],
+    darkModeStyle:
+      '@dnb/eufemia/style/themes/kateholthe/kateholthe-theme-dark-mode.min.css',
     supportsDarkSurface: false,
   },
 }

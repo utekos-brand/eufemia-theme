@@ -1,0 +1,336 @@
+{
+  "kateholthe": {
+    "orange": {
+      "ff6200": {
+        "$type": "color",
+        "$value": {
+          "hex": "#ff6200",
+          "alpha": 1
+        }
+      },
+      "ff711a": {
+        "$type": "color",
+        "$value": {
+          "hex": "#ff711a",
+          "alpha": 1
+        }
+      },
+      "e65800": {
+        "$type": "color",
+        "$value": {
+          "hex": "#e65800",
+          "alpha": 1
+        }
+      },
+      "b34400": {
+        "$type": "color",
+        "$value": {
+          "hex": "#b34400",
+          "alpha": 1
+        }
+      },
+      "f64505": {
+        "$type": "color",
+        "$value": {
+          "hex": "#f64505",
+          "alpha": 1
+        }
+      },
+      "ff4600": {
+        "$type": "color",
+        "$value": {
+          "hex": "#ff4600",
+          "alpha": 1
+        }
+      },
+      "fa490e": {
+        "$type": "color",
+        "$value": {
+          "hex": "#fa490e",
+          "alpha": 1
+        }
+      },
+      "f96c1a": {
+        "$type": "color",
+        "$value": {
+          "hex": "#f96c1a",
+          "alpha": 1
+        }
+      },
+      "ff6a14": {
+        "$type": "color",
+        "$value": {
+          "hex": "#ff6a14",
+          "alpha": 1
+        }
+      },
+      "ff5600": {
+        "$type": "color",
+        "$value": {
+          "hex": "#ff5600",
+          "alpha": 1
+        }
+      },
+      "fd7133": {
+        "$type": "color",
+        "$value": {
+          "hex": "#fd7133",
+          "alpha": 1
+        }
+      },
+      "f96900": {
+        "$type": "color",
+        "$value": {
+          "hex": "#f96900",
+          "alpha": 1
+        }
+      },
+      "e95c00": {
+        "$type": "color",
+        "$value": {
+          "hex": "#e95c00",
+          "alpha": 1
+        }
+      }
+    },
+    "sea": {
+      "50": {
+        "$type": "color",
+        "$value": {
+          "hex": "#ecf9f8",
+          "alpha": 1
+        }
+      },
+      "100": {
+        "$type": "color",
+        "$value": {
+          "hex": "#daeeec",
+          "alpha": 1
+        }
+      },
+      "200": {
+        "$type": "color",
+        "$value": {
+          "hex": "#bcdcd9",
+          "alpha": 1
+        }
+      },
+      "300": {
+        "$type": "color",
+        "$value": {
+          "hex": "#96c8c4",
+          "alpha": 1
+        }
+      },
+      "400": {
+        "$type": "color",
+        "$value": {
+          "hex": "#6bb1ac",
+          "alpha": 1
+        }
+      },
+      "500": {
+        "$type": "color",
+        "$value": {
+          "hex": "#3c9893",
+          "alpha": 1
+        }
+      },
+      "600": {
+        "$type": "color",
+        "$value": {
+          "hex": "#277d78",
+          "alpha": 1
+        }
+      },
+      "700": {
+        "$type": "color",
+        "$value": {
+          "hex": "#1e625f",
+          "alpha": 1
+        }
+      },
+      "800": {
+        "$type": "color",
+        "$value": {
+          "hex": "#174947",
+          "alpha": 1
+        }
+      },
+      "900": {
+        "$type": "color",
+        "$value": {
+          "hex": "#0f3230",
+          "alpha": 1
+        }
+      },
+      "1000": {
+        "$type": "color",
+        "$value": {
+          "hex": "#091d1c",
+          "alpha": 1
+        }
+      },
+      "1100": {
+        "$type": "color",
+        "$value": {
+          "hex": "#040d0d",
+          "alpha": 1
+        }
+      }
+    },
+    "forest": {
+      "50": {
+        "$type": "color",
+        "$value": {
+          "hex": "#ebf3f1",
+          "alpha": 1
+        }
+      },
+      "100": {
+        "$type": "color",
+        "$value": {
+          "hex": "#cee4dd",
+          "alpha": 1
+        }
+      },
+      "200": {
+        "$type": "color",
+        "$value": {
+          "hex": "#acd5ca",
+          "alpha": 1
+        }
+      },
+      "300": {
+        "$type": "color",
+        "$value": {
+          "hex": "#87c8b7",
+          "alpha": 1
+        }
+      },
+      "400": {
+        "$type": "color",
+        "$value": {
+          "hex": "#60b9a2",
+          "alpha": 1
+        }
+      },
+      "500": {
+        "$type": "color",
+        "$value": {
+          "hex": "#3da98f",
+          "alpha": 1
+        }
+      },
+      "600": {
+        "$type": "color",
+        "$value": {
+          "hex": "#16977d",
+          "alpha": 1
+        }
+      },
+      "700": {
+        "$type": "color",
+        "$value": {
+          "hex": "#01846c",
+          "alpha": 1
+        }
+      },
+      "800": {
+        "$type": "color",
+        "$value": {
+          "hex": "#00715d",
+          "alpha": 1
+        }
+      },
+      "900": {
+        "$type": "color",
+        "$value": {
+          "hex": "#005e4e",
+          "alpha": 1
+        }
+      },
+      "1000": {
+        "$type": "color",
+        "$value": {
+          "hex": "#024c40",
+          "alpha": 1
+        }
+      },
+      "1100": {
+        "$type": "color",
+        "$value": {
+          "hex": "#0a3931",
+          "alpha": 1
+        }
+      },
+      "1200": {
+        "$type": "color",
+        "$value": {
+          "hex": "#032924",
+          "alpha": 1
+        }
+      },
+      "1300": {
+        "$type": "color",
+        "$value": {
+          "hex": "#011a17",
+          "alpha": 1
+        }
+      },
+      "1400": {
+        "$type": "color",
+        "$value": {
+          "hex": "#010b09",
+          "alpha": 1
+        }
+      }
+    },
+    "text": {
+      "100": {
+        "$type": "color",
+        "$value": {
+          "hex": "#f7f6f3",
+          "alpha": 1
+        }
+      },
+      "200": {
+        "$type": "color",
+        "$value": {
+          "hex": "#f0eee9",
+          "alpha": 1
+        }
+      },
+      "300": {
+        "$type": "color",
+        "$value": {
+          "hex": "#e5e2d9",
+          "alpha": 1
+        }
+      }
+    },
+    "neutral": {
+      "white": {
+        "$type": "color",
+        "$value": {
+          "hex": "#ffffff",
+          "alpha": 1
+        }
+      },
+      "ink": {
+        "$type": "color",
+        "$value": {
+          "hex": "#081d18",
+          "alpha": 1
+        }
+      }
+    }
+  },
+  "$extensions": {
+    "no.kateholthe.origin": {
+      "date": "2026-10-30",
+      "source": "User-supplied color values and skogsdyp_15_tokens.css",
+      "note": "Exact supplied hex values; text values normalized with a leading hash. White and ink are supplied by the attached CSS."
+    }
+  }
+}

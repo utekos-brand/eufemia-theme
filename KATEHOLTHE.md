@@ -36,4 +36,18 @@ theme does not meet this release gate.
 Install the immutable tarball in the Next.js application as a `file:` dependency,
 commit that artifact and its provenance with the application's lockfile, and
 verify its local MCP and built import paths before using the theme. The initial
-brand palette and typography still require approval before a themed release.
+brand typography remains application-provided for the first vertical slice.
+
+## Theme source
+
+The user-supplied 2026-10-30 palette is preserved in
+`src/style/themes/kateholthe/source/foundation.tokens.json`. It contains 43
+brand colors plus the white and ink foregrounds supplied in the forest CSS.
+Orange alternatives keep their literal identities; the sea and forest scale
+names and steps remain unchanged.
+
+`light.tokens.json` and `dark.tokens.json` provide the first semantic mapping
+for rendered review. Functional status tokens retain upstream UI foundations.
+The custom Button is integrated through Theme Factory with `ui` fallback for
+other component styles. Application font loaders connect through the two
+Kate Holthe font-family hooks; no final typography standard is declared here.

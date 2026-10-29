@@ -125,13 +125,30 @@ import '@dnb/eufemia/style/themes/eiendom/eiendom-theme-dark-mode.min.css'
 Tools and applications can inspect the same support matrix used by Eufemia's
 types and documentation:
 
-| Theme        | Color schemes   | Dark mode stylesheet                                                | Dark surfaces |
-| ------------ | --------------- | ------------------------------------------------------------------- | ------------- |
-| `ui`         | `light`, `dark` | `@dnb/eufemia/style/themes/ui/ui-theme-dark-mode.min.css`           | Yes           |
-| `sbanken`    | `light`, `dark` | `@dnb/eufemia/style/themes/sbanken/sbanken-theme-dark-mode.min.css` | Yes           |
-| `eiendom`    | `light`, `dark` | `@dnb/eufemia/style/themes/eiendom/eiendom-theme-dark-mode.min.css` | Yes           |
-| `carnegie`   | `light`         | None                                                                | Yes           |
-| `kateholthe` | `light`         | None                                                                | No            |
+| Theme        | Color schemes   | Dark mode stylesheet                                                      | Dark surfaces |
+| ------------ | --------------- | ------------------------------------------------------------------------- | ------------- |
+| `ui`         | `light`, `dark` | `@dnb/eufemia/style/themes/ui/ui-theme-dark-mode.min.css`                 | Yes           |
+| `sbanken`    | `light`, `dark` | `@dnb/eufemia/style/themes/sbanken/sbanken-theme-dark-mode.min.css`       | Yes           |
+| `eiendom`    | `light`, `dark` | `@dnb/eufemia/style/themes/eiendom/eiendom-theme-dark-mode.min.css`       | Yes           |
+| `carnegie`   | `light`         | None                                                                      | Yes           |
+| `kateholthe` | `light`, `dark` | `@dnb/eufemia/style/themes/kateholthe/kateholthe-theme-dark-mode.min.css` | No            |
+
+### Kate Holthe foundations
+
+Kate Holthe has its own source foundation and semantic token files in
+`src/style/themes/kateholthe/source/`. The supplied palette contains 13 orange
+variants, 12 sea tones, 15 forest tones and three warm text colors. White and
+dark ink are additional foregrounds from the supplied forest palette.
+
+Local color references such as `{kateholthe.sea.900}` generate foundation
+variable references without assigning invented Figma identifiers. Light and
+dark tokens are scoped to the Kate Holthe theme. Functional status colors
+retain their UI foundation references as part of the shared Eufemia motor.
+
+The custom Button uses orange actions with dark foreground text. The default,
+hover and pressed backgrounds are `#FF6200`, `#FF711A` and `#E65800`. Font
+loading belongs to the consuming application, which can set the
+`--kateholthe-font-family-default` and `--kateholthe-font-family-heading` hooks.
 
 ```tsx
 import { themeCapabilities } from '@dnb/eufemia/style/themes/capabilities'

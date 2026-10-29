@@ -18,6 +18,26 @@ const sizesVariableSetId =
 const typographyVariableSetId =
   'VariableCollectionId:d00e91884fb9b3877858490e6b8fd6fcb0c60111/5552:1045'
 
+describe('local foundation references', () => {
+  it('preserves local color references without claiming Figma provenance', () => {
+    expect(
+      transformFigmaValue({
+        $type: 'color',
+        $value: '{kateholthe.sea.900}',
+      })
+    ).toBe('var(--kateholthe-sea-900)')
+  })
+
+  it.each(['{unknown.sea.900}', '{kateholthe..900}', 'red; color: blue'])(
+    'rejects unsupported or malformed color reference %s',
+    ($value) => {
+      expect(() =>
+        transformFigmaValue({ $type: 'color', $value })
+      ).toThrow('Unsupported local color reference')
+    }
+  )
+})
+
 describe('makePropertiesFile', () => {
   const global = {
     ui: null,
@@ -112,6 +132,39 @@ describe('makePropertiesFile', () => {
     )
   })
   describe('Tokens snapshots for', () => {
+    it('generates scoped Kate Holthe foundations and both semantic modes', async () => {
+      const fs = await import('node:fs')
+      const root = 'src/style/themes/kateholthe/'
+      const foundation = fs.readFileSync(root + 'foundation.scss', 'utf8')
+      const light = fs.readFileSync(root + 'tokens.scss', 'utf8')
+      const dark = fs.readFileSync(root + 'tokens-dark.scss', 'utf8')
+      const variables = new Set(
+        [...foundation.matchAll(/(--kateholthe-[a-z0-9-]+):/g)].map(
+          ([, name]) => name
+        )
+      )
+
+      expect(variables.size).toBe(45)
+      expect(foundation).toContain('--kateholthe-orange-ff6200: #ff6200;')
+      expect(foundation).toContain('--kateholthe-forest-1400: #010b09;')
+      expect(light).toContain('.eufemia-theme__kateholthe {')
+      expect(dark).toContain(
+        '.eufemia-theme__kateholthe.eufemia-theme__color-scheme--dark {'
+      )
+      expect(light).not.toContain(':root')
+      expect(dark).not.toContain(':root')
+
+      for (const output of [light, dark]) {
+        const references = [
+          ...output.matchAll(/var\(\s*(--kateholthe-[a-z0-9-]+)\s*\)/g),
+        ]
+        expect(references.length).toBeGreaterThan(100)
+        expect(
+          references.filter(([, name]) => !variables.has(name))
+        ).toEqual([])
+      }
+    })
+
     it('ui', () => {
       expect(global.uiTokens).toMatchSnapshot()
       expect(global.uiTokensDark).toMatchSnapshot()
