@@ -5,6 +5,17 @@ import path from 'path'
 import { themeCapabilities, themeNames } from '../capabilities'
 
 describe('themeCapabilities', () => {
+  it('registers Kate Holthe alongside the four upstream brands', () => {
+    expect(themeNames).toEqual([
+      'ui',
+      'sbanken',
+      'eiendom',
+      'carnegie',
+      'kateholthe',
+    ])
+    expect(themeCapabilities).toHaveProperty('kateholthe')
+  })
+
   it('defines every supported Theme name', () => {
     expect(Object.keys(themeCapabilities)).toEqual(themeNames)
   })

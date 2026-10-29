@@ -2,13 +2,13 @@ import type { PropertiesTableProps } from '../shared/types'
 
 export const ThemeProperties: PropertiesTableProps = {
   brand: {
-    doc: 'The branding theme. Can be `ui` (universal identity), `eiendom`, `sbanken` or `carnegie`.',
-    type: ['"ui"', '"eiendom"', '"sbanken"', '"carnegie"'],
+    doc: 'The branding theme. Can be `ui` (universal identity), `eiendom`, `sbanken`, `carnegie` or `kateholthe`.',
+    type: ['"ui"', '"eiendom"', '"sbanken"', '"carnegie"', '"kateholthe"'],
     status: 'optional',
   },
   name: {
     doc: 'Deprecated. Use `brand` instead.',
-    type: ['"ui"', '"eiendom"', '"sbanken"', '"carnegie"'],
+    type: ['"ui"', '"eiendom"', '"sbanken"', '"carnegie"', '"kateholthe"'],
     status: 'deprecated',
   },
   density: {

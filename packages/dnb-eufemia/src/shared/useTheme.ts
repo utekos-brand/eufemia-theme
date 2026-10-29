@@ -13,6 +13,7 @@ export type UseThemeReturn =
       isSbanken: boolean
       isEiendom: boolean
       isCarnegie: boolean
+      isKateholthe: boolean
     })
   | null
 
@@ -32,6 +33,7 @@ export default function useTheme(): UseThemeReturn {
       isSbanken: brand === 'sbanken',
       isEiendom: brand === 'eiendom',
       isCarnegie: brand === 'carnegie',
+      isKateholthe: brand === 'kateholthe',
     }
   }
 

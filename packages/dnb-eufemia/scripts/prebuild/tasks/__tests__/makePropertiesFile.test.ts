@@ -546,6 +546,15 @@ describe('makePropertiesFile', () => {
     })
 
     describe('overrideFoundationReferencePrefix', () => {
+      it('normalizes Kate Holthe references with the registered brand prefixes', () => {
+        expect(
+          overrideFoundationReferencePrefix(
+            '--token-color: var(--kateholthe-paper);',
+            'dnb'
+          )
+        ).toBe('--token-color: var(--dnb-paper);')
+      })
+
       it('overrides every foundation reference in a declaration', () => {
         expect(
           overrideFoundationReferencePrefix(
@@ -575,6 +584,16 @@ describe('makePropertiesFile', () => {
     })
 
     describe('transformFigmaAlias', () => {
+      it('recognizes Kate Holthe foundation aliases', () => {
+        expect(
+          transformFigmaAlias({
+            targetVariableName: 'kateholthe/Neutral/Paper',
+            targetVariableSetId: colorsVariableSetId,
+            targetVariableSetName: 'colors',
+          })
+        ).toBe('var(--kateholthe-neutral-paper)')
+      })
+
       it('generates css var', () => {
         const val = {
           targetVariableName: 'dnb/ColdGreen/600',

@@ -206,6 +206,7 @@ describe('VisibilityByTheme.Brand', () => {
     ['sbanken', 'Sbanken'],
     ['eiendom', 'Eiendom'],
     ['carnegie', 'Carnegie'],
+    ['kateholthe', 'Kate Holthe'],
   ] as const)('renders the label of the %s brand', (brand, label) => {
     render(
       <Theme brand={brand}>
@@ -239,6 +240,7 @@ describe('VisibilityByTheme.Name', () => {
     ['sbanken', 'Sbanken'],
     ['eiendom', 'Eiendom'],
     ['carnegie', 'Carnegie'],
+    ['kateholthe', 'Kate Holthe'],
   ] as const)(
     'renders the same label as Brand for the %s brand',
     (brand, label) => {

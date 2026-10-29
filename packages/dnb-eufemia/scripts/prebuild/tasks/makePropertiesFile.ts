@@ -242,6 +242,7 @@ const foundationPrefixMap = {
   ui: { css: 'dnb', figma: 'dnb' },
   sbanken: { css: 'sbanken', figma: 'sbanken' },
   carnegie: { css: 'carnegie', figma: 'dnb-carnegie' },
+  kateholthe: { css: 'kateholthe', figma: 'kateholthe' },
 }
 
 export const transformFigmaAlias = (alias: FigmaAlias) => {
@@ -820,11 +821,9 @@ export const overrideFoundationReferencePrefix = (
   scssContent: string,
   referencePrefixOverride: string
 ) => {
-  const prefixPattern = [
-    foundationPrefixMap.ui.css,
-    foundationPrefixMap.sbanken.css,
-    foundationPrefixMap.carnegie.css,
-  ].join('|')
+  const prefixPattern = Object.values(foundationPrefixMap)
+    .map(({ css }) => css)
+    .join('|')
 
   return scssContent.replace(
     new RegExp(
