@@ -4,6 +4,25 @@ import { Provider } from '../'
 import useTheme from '../useTheme'
 
 describe('useTheme', () => {
+  it('identifies Kate Holthe through the real Theme context', () => {
+    const wrapper = ({ children }) => (
+      <Theme brand="kateholthe">{children}</Theme>
+    )
+    const { result } = renderHook(() => useTheme(), { wrapper })
+
+    expect(result.current).toEqual(
+      expect.objectContaining({
+        brand: 'kateholthe',
+        name: 'kateholthe',
+        isKateholthe: true,
+        isUi: false,
+        isSbanken: false,
+        isEiendom: false,
+        isCarnegie: false,
+      })
+    )
+  })
+
   it('returns null if no context was given', () => {
     const { result } = renderHook(() => useTheme())
 
@@ -41,6 +60,7 @@ describe('useTheme', () => {
       isSbanken: true,
       isUi: false,
       isCarnegie: false,
+      isKateholthe: false,
     })
   })
 
@@ -88,6 +108,7 @@ describe('useTheme', () => {
       isSbanken: false,
       isUi: false,
       isCarnegie: false,
+      isKateholthe: false,
     })
   })
 })

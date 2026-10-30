@@ -1,0 +1,8 @@
+.eufemia-theme__kateholthe {
+  --kateholthe-font-family-default: system-ui, sans-serif;
+  --kateholthe-font-family-heading: georgia, serif;
+  --font-family-default: var(--kateholthe-font-family-default);
+  --font-family-heading: var(--kateholthe-font-family-heading);
+  --font-size-basis-native: 1rem;
+  --focus-ring-color: var(--token-color-stroke-action-focus);
+}

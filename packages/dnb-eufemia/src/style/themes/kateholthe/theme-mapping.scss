@@ -1,0 +1,9 @@
+@use '../ui/properties.scss';
+@use './typography-properties.scss';
+
+.eufemia-theme__kateholthe {
+  --color-sea-green: var(--token-color-text-action);
+  --color-emerald-green: var(--token-color-background-action);
+  --color-mint-green: var(--kateholthe-sea-100);
+  --color-pistachio: var(--kateholthe-forest-200);
+}

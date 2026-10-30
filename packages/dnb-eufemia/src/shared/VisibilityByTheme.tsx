@@ -71,11 +71,14 @@ export default function VisibilityByTheme({
 
 /**
  * Renders the display name of the inherited theme brand,
- * such as "DNB", "Sbanken", "Eiendom" or "Carnegie".
+ * such as "DNB", "Sbanken", "Eiendom", "Carnegie" or "Kate Holthe".
  * Renders nothing when the brand is unknown or no theme was inherited.
  */
 VisibilityByTheme.Brand = function ThemeBrand() {
   const theme = useTheme()
+  if (theme?.isKateholthe) {
+    return 'Kate Holthe'
+  }
   if (theme?.isCarnegie) {
     return 'Carnegie'
   }

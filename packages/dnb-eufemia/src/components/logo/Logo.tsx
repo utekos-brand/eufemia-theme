@@ -65,6 +65,7 @@ function Logo(localProps: LogoProps) {
       isSbanken: themeBrand === 'sbanken',
       isEiendom: themeBrand === 'eiendom',
       isCarnegie: themeBrand === 'carnegie',
+      isKateholthe: themeBrand === 'kateholthe',
     }
   }, [hasTheme, themeBrand, size])
 

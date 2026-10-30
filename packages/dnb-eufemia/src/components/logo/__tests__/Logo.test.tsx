@@ -322,6 +322,25 @@ describe('Logo component', () => {
     })
   })
 
+  it('passes the Kate Holthe context to a custom svg factory', () => {
+    let receivedTheme: UseThemeReturn = null
+    const SvgFactory = (theme: UseThemeReturn) => {
+      receivedTheme = theme
+      return DnbDefault
+    }
+
+    render(
+      <Provider theme={{ brand: 'kateholthe' }}>
+        <Logo svg={SvgFactory} />
+      </Provider>
+    )
+
+    expect(receivedTheme).toMatchObject({
+      brand: 'kateholthe',
+      isKateholthe: true,
+    })
+  })
+
   it('resolves brand from the deprecated name for a custom svg factory', () => {
     let receivedTheme: UseThemeReturn = null
     const SvgFactory = (theme: UseThemeReturn) => {

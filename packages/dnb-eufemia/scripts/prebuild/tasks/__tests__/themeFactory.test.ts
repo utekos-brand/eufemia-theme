@@ -46,6 +46,24 @@ vi.mock('fs-extra', async () => {
 })
 
 describe('runFactory', () => {
+  beforeEach(() => {
+    vi.clearAllMocks()
+  })
+
+  it('uses the Kate Holthe component and keeps the UI fallback for other components', async () => {
+    vi.spyOn(globby, 'default').mockResolvedValue([
+      './src/components/button/style/themes/dnb-button-theme-ui.scss',
+      './src/components/button/style/themes/dnb-button-theme-kateholthe.scss',
+      './src/components/badge/style/themes/dnb-badge-theme-ui.scss',
+    ])
+
+    const result = await getThemeContent({ name: 'kateholthe' })
+
+    expect(result).toContain('dnb-button-theme-kateholthe.scss')
+    expect(result).toContain('dnb-badge-theme-ui.scss')
+    expect(result).not.toContain('dnb-button-theme-ui.scss')
+  })
+
   it('has to find all related "ui" theme files', async () => {
     vi.spyOn(globby, 'default').mockResolvedValue([
       './src/components/button/style/themes/dnb-button-theme-ui.scss',

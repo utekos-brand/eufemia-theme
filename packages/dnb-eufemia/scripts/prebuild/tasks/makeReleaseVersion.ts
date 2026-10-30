@@ -21,10 +21,17 @@ export async function makeReleaseVersion() {
     return // stop here
   }
 
-  let version = null
+  const { version: packageVersion } = JSON.parse(
+    await fs.readFile(
+      require.resolve('@dnb/eufemia/package.json'),
+      'utf-8'
+    )
+  )
+  let version =
+    packageVersion === '0.0.0-development' ? null : packageVersion
   let sha = null
 
-  if (isReleaseBranch(branchName)) {
+  if (!version && isReleaseBranch(branchName)) {
     // A release build has to carry a version, so when the commits do not
     // warrant one it keeps the version the package already has
     version =

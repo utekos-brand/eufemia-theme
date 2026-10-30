@@ -4,7 +4,13 @@ export type ThemeCapability = {
   supportsDarkSurface: boolean
 }
 
-export const themeNames = ['ui', 'sbanken', 'eiendom', 'carnegie'] as const
+export const themeNames = [
+  'ui',
+  'sbanken',
+  'eiendom',
+  'carnegie',
+  'kateholthe',
+] as const
 
 export type ThemeName = (typeof themeNames)[number]
 
@@ -31,5 +37,11 @@ export const themeCapabilities: Record<ThemeName, ThemeCapability> = {
     colorSchemes: ['light'],
     darkModeStyle: null,
     supportsDarkSurface: true,
+  },
+  kateholthe: {
+    colorSchemes: ['light', 'dark'],
+    darkModeStyle:
+      '@dnb/eufemia/style/themes/kateholthe/kateholthe-theme-dark-mode.min.css',
+    supportsDarkSurface: false,
   },
 }

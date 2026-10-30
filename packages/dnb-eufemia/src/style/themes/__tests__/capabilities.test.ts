@@ -5,8 +5,28 @@ import path from 'path'
 import { themeCapabilities, themeNames } from '../capabilities'
 
 describe('themeCapabilities', () => {
+  it('registers Kate Holthe alongside the four upstream brands', () => {
+    expect(themeNames).toEqual([
+      'ui',
+      'sbanken',
+      'eiendom',
+      'carnegie',
+      'kateholthe',
+    ])
+    expect(themeCapabilities).toHaveProperty('kateholthe')
+  })
+
   it('defines every supported Theme name', () => {
     expect(Object.keys(themeCapabilities)).toEqual(themeNames)
+  })
+
+  it('advertises the generated Kate Holthe light and dark modes', () => {
+    expect(themeCapabilities.kateholthe).toMatchObject({
+      colorSchemes: ['light', 'dark'],
+      darkModeStyle:
+        '@dnb/eufemia/style/themes/kateholthe/kateholthe-theme-dark-mode.min.css',
+      supportsDarkSurface: false,
+    })
   })
 
   it('only declares dark mode styles that exist', () => {
